@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalhes do Filme</h1>
+    <p><strong>Título:</strong> {{ object.titulo }}</p>
+    <p><strong>Gênero:</strong> {{ object.genero }}</p>
+    <p><strong>Ano de Lançamento:</strong> {{ object.ano_lancamento }}</p>
+    <p><strong>Alugado por:</strong> 
+        {% if object.cliente %}
+            <a href="{% url 'cliente-detail' object.cliente.pk %}">{{ object.cliente.nome }}</a>
+        {% else %}
+            Este filme não está alugado no momento.
+        {% endif %}
+    </p>
+    <a href="{% url 'filme-list' %}">Voltar para Lista de Filmes</a>
+</body>
+</html>

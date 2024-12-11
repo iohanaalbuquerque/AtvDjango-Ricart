@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bem-vindo ao Sistema de Locação de Filmes!</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'cliente-list' %}">Lista de Clientes</a></li>
+            <li><a href="{% url 'filme-list' %}">Lista de Filmes</a></li>
+            <li><a href="{% url 'cliente-create' %}">Adicionar Novo Cliente</a></li>
+            <li><a href="{% url 'filme-create' %}">Adicionar Novo Filme</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

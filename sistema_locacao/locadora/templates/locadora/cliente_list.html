@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Clientes</h1>
+    <a href="{% url 'cliente-create' %}">Adicionar Cliente</a>
+    <ul>
+        {% for cliente in object_list %}
+            <li>
+                <a href="{% url 'cliente-detail' cliente.pk %}">{{ cliente.nome }}</a> ({{ cliente.email }}) 
+                <a href="{% url 'cliente-update' cliente.pk %}">Editar</a>
+                <a href="{% url 'cliente-delete' cliente.pk %}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'filme-list' %}">Ver Filmes</a>
+</body>
+</html>

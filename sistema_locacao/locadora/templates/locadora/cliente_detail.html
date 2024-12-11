@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalhes do Cliente</h1>
+    <p><strong>Nome:</strong> {{ object.nome }}</p>
+    <p><strong>Email:</strong> {{ object.email }}</p>
+    <h2>Filmes Alugados</h2>
+    <ul>
+        {% for filme in object.filmes.all %}
+            <li>
+                <a href="{% url 'filme-detail' filme.pk %}">{{ filme.titulo }}</a>
+            </li>
+        {% empty %}
+            <li>Este cliente ainda não alugou nenhum filme.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cliente-list' %}">Voltar para Lista de Clientes</a>
+</body>
+</html>

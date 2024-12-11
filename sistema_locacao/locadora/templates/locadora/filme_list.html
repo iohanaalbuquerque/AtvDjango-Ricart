@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Filmes</h1>
+    <a href="{% url 'filme-create' %}">Adicionar Filme</a>
+    <ul>
+        {% for filme in object_list %}
+            <li>
+                <a href="{% url 'filme-detail' filme.pk %}">{{ filme.titulo }}</a> 
+                ({{ filme.genero }}, {{ filme.ano_lancamento }}) 
+                Alugado por: 
+                {% if filme.cliente %}
+                    <a href="{% url 'cliente-detail' filme.cliente.pk %}">{{ filme.cliente.nome }}</a>
+                {% else %}
+                    Não alugado
+                {% endif %}
+                <a href="{% url 'filme-update' filme.pk %}">Editar</a>
+                <a href="{% url 'filme-delete' filme.pk %}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cliente-list' %}">Ver Clientes</a>
+</body>
+</html>
